@@ -4,20 +4,35 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<section id="anime">
+    <div class="container">
+        <br>
+        <h1>@Html.DisplayFor(model => model.titleAnime) Trailer</h1>
+        </br>
+            @Html.DisplayFor(model => model.trailerAnime)
+        </br>
+        </br>
+        <h1>Watch @Html.DisplayFor(model => model.titleAnime)</h1>
+        </br>
+            @Html.DisplayFor(model => model.src)
+        </br>
 
-<div>
+    </div>
+</section>
+
+
+@*<div>
     <h4>ManageAnime</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.titleAnime)
+            
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.titleAnime)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.src)
+           
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.src)
@@ -53,7 +68,7 @@
             @Html.DisplayFor(model => model.imgAnime)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.trailerAnime)
+            
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.trailerAnime)
@@ -75,4 +90,4 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@
