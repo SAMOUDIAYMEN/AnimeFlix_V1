@@ -1,0 +1,89 @@
+﻿@model IEnumerable<AnimeFlix.Models.ManageAnime>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.titleAnime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.src)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.studion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descriptionAnime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ratingAnime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.imgAnime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.trailerAnime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.runtime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.categoryAnime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.titleAnime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.src)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.studion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descriptionAnime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ratingAnime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imgAnime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trailerAnime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.runtime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.categoryAnime)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
