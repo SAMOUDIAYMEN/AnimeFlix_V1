@@ -1,0 +1,73 @@
+﻿@model IEnumerable<AnimeFlix.Models.ManageAnime>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section id="anime">
+    <div class="container">
+        <br>
+        <h1>All Available Anime</h1>
+        </br></br>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm profile-pic text-center">
+                    <div class="img-box">
+                        <img src="@Html.DisplayFor(modelItem => item.imgAnime)" class="img-responsive">
+                        <a asp-action="Details" asp-route-id="@item.id"><h4>@Html.DisplayFor(modelItem => item.titleAnime)</h4></a>
+                        <br>
+                        <p>Studio : @Html.DisplayFor(modelItem => item.studion)</p>
+                        <p style="font-style: italic;">
+                            @Html.DisplayFor(modelItem => item.descriptionAnime)
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+@*<table class="table">
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.src)
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author)
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ratingAnime)
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trailerAnime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.runtime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.categoryAnime)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
