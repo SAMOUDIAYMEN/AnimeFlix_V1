@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<AnimeFlix.Models.ManageAnime>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -89,65 +91,25 @@
         </br></br>
         <div class="row">
             <!--anime slot-->
-            <div class="col-sm profile-pic text-center">
-                <div class="img-box">
-                    <img src="https://images4.alphacoders.com/112/thumb-1920-1124786.jpg" class="img-responsive">
-                    <a href="#"><h4>Jujutsu Kaisen</h4></a>
-                    <br>
-                    <p>Studio : Tokyo TV</p>
-                    <p style="font-style: italic;">
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Fusce sit amet tortor dolor. Pellentesque efficitur
-                        interdum porttitor. Aliquam sagittis leo eu elit vehicula,
-                        at maximus leo varius. Pellentesque laoreet quis massa id
-                        scelerisque. In at purus scelerisque, fermentum diam vitae,
-                        interdum nibh. Ut in lacus vel tortor ultrices condimentum.
-                        Phasellus varius ac sem eu euismod. Maecenas id metus odio.
-                        Nulla accumsan finibus posuere."
-                    </p>
+            
+            @foreach (var item in Model)
+            {
+                <div class="col-sm profile-pic text-center">
+                    <div class="img-box">
+                        <img src="@Html.DisplayFor(modelItem => item.imgAnime)" class="img-responsive">
+                        <a asp-action="Details" asp-route-id="@item.id"><h4>@Html.DisplayFor(modelItem => item.titleAnime)</h4></a>
+                        <br>
+                        <p>Studio : @Html.DisplayFor(modelItem => item.studion)</p>
+                        <p style="font-style: italic;">
+                            @Html.DisplayFor(modelItem => item.descriptionAnime)
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <!--anime slot-->
-            <div class="col-sm profile-pic text-center">
-                <div class="img-box">
-                    <img src="https://images4.alphacoders.com/112/thumb-1920-1124786.jpg" class="img-responsive">
-                    <a href="#"><h4>Jujutsu Kaisen</h4></a>
-                    <br>
-                    <p>Studio : Tokyo TV</p>
-                    <p style="font-style: italic;">
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Fusce sit amet tortor dolor. Pellentesque efficitur
-                        interdum porttitor. Aliquam sagittis leo eu elit vehicula,
-                        at maximus leo varius. Pellentesque laoreet quis massa id
-                        scelerisque. In at purus scelerisque, fermentum diam vitae,
-                        interdum nibh. Ut in lacus vel tortor ultrices condimentum.
-                        Phasellus varius ac sem eu euismod. Maecenas id metus odio.
-                        Nulla accumsan finibus posuere."
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm profile-pic text-center">
-                <div class="img-box">
-                    <img src="https://images4.alphacoders.com/112/thumb-1920-1124786.jpg" class="img-responsive">
-                    <a href="#"><h4>Jujutsu Kaisen</h4></a>
-                    <br>
-                    <p>Studio : Tokyo TV</p>
-                    <p style="font-style: italic;">
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Fusce sit amet tortor dolor. Pellentesque efficitur
-                        interdum porttitor. Aliquam sagittis leo eu elit vehicula,
-                        at maximus leo varius. Pellentesque laoreet quis massa id
-                        scelerisque. In at purus scelerisque, fermentum diam vitae,
-                        interdum nibh. Ut in lacus vel tortor ultrices condimentum.
-                        Phasellus varius ac sem eu euismod. Maecenas id metus odio.
-                        Nulla accumsan finibus posuere."
-                    </p>
-                </div>
-            </div>
+            }
         </div>
     </div>
     <br>
-    <a href="../html pages/anime.html"><h4> <i class="fas fa-arrow-right"></i> Check out all anime </h4></a>
+    <a asp-controller="Animes" asp-action="index"><h4> <i class="fas fa-arrow-right"></i> Check out all anime </h4></a>
 </section>
   </br>
 

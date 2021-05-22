@@ -9,6 +9,7 @@
 }
 
 
+
 #nav {
     position: sticky;
     top: 0;
@@ -407,10 +408,10 @@ i {
     text-decoration: none;
 }
 
-    #anime a h4 {
-        color: white;
-    }
+#anime a h4 {
+    color: white;
+}
 
-        #anime a h4 .fas {
-            color: white;
-        }
+#anime a h4 .fas {
+    color: white;
+}
