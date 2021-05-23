@@ -97,7 +97,7 @@
                 <div class="col-sm profile-pic text-center">
                     <div class="img-box">
                         <img src="@Html.DisplayFor(modelItem => item.imgAnime)" class="img-responsive">
-                        <a asp-action="Details" asp-route-id="@item.id"><h4>@Html.DisplayFor(modelItem => item.titleAnime)</h4></a>
+                        <a asp-controller="Animes" asp-action="Details" asp-route-id="@item.id"><h4>@Html.DisplayFor(modelItem => item.titleAnime)</h4></a>
                         <br>
                         <p>Studio : @Html.DisplayFor(modelItem => item.studion)</p>
                         <p style="font-style: italic;">
