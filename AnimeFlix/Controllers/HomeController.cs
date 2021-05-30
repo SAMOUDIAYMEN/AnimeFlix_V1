@@ -1,5 +1,6 @@
 ﻿using Anime.Data;
 using AnimeFlix.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -24,6 +25,7 @@ namespace AnimeFlix.Controllers
 
         public async Task<IActionResult> Index()
         {
+            ViewBag.admin = HttpContext.Session.GetString("admin");
             _context.Anime.Reverse().Take(3).Reverse();
             return View(await _context.Anime.ToListAsync());
         }
