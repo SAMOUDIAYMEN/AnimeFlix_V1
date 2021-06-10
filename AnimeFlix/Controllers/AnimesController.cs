@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Anime.Data;
 using AnimeFlix.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AnimeFlix.Controllers
 {
@@ -26,6 +27,7 @@ namespace AnimeFlix.Controllers
         }
 
         // GET: Animes/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
