@@ -91,7 +91,7 @@
         </br></br>
         <div class="row">
             <!--anime slot-->
-            
+
             @foreach (var item in Model)
             {
                 <div class="col-sm profile-pic text-center">
@@ -151,26 +151,40 @@
         <h1>Get in Touch</h1>
         <div class="row">
             <div class="col-md-6">
-                <form class="contact-form">
+                <form class="contact-form" method="post" autocomplete="off" name="google-sheet">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name">
+                        <input type="text" class="form-control" placeholder="Name" name="Name" required>
                     </div>
                     <br>
                     <div class="form-group">
-                        <input type="number" class="form-control" placeholder="Phone Number">
+                        <input type="number" class="form-control" placeholder="Phone Number" name="Phone" required>
                     </div>
                     <br>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email Adress">
+                        <input type="email" class="form-control" placeholder="Email Adress" name="Email" required>
                     </div>
                     <br>
                     <div class="form-group">
-                        <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+                        <textarea class="form-control" rows="5" placeholder="Message" name="Message" required></textarea>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-dark">Send Report</button>
+                    <button type="submit" name="submit" class="btn btn-dark">Send Report</button>
                 </form>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwFvKUTbKVRB0jXT0B95IiLTdLvsoWN-MwpeLSS46vF3CYZh7uk/exec'
+    const form = document.forms['google-sheet']
+    form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
